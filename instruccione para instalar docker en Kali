@@ -1,0 +1,52 @@
+# 1 Instalar y usar Docker en Kali (Linux)
+# Copy & paste cada línea
+
+sudo apt update
+#Actualizar
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+#Instalar paquetes de requisitos previos que permitan a apt usar paquetes a través de HTTPS
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#Añadir la clave de GPG para el repositorio oficial de Docker
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+#Agregar el repositorio de Docker a las fuentes de APT
+
+sudo apt update
+#Volver a actualizar
+
+apt-cache policy docker-ce
+#Instalació desde el repositorio de Docker
+
+sudo apt install docker-ce
+#Instalar doccker
+
+sudo systemctl status docker
+#Comprobación 
+
+# Resultado por terminal similar a este:
+# Output 
+# ● docker.service - Docker Application Container Engine
+#     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+#     Active: active (running) since Tue 2020-05-19 17:00:41 UTC; 17s ago
+#     TriggeredBy: ● docker.socket
+#       Docs: https://docs.docker.com
+#   Main PID: 24321 (dockerd)
+#      Tasks: 8
+#     Memory: 46.4M
+
+# 2 Ejecutar el comando Docker sin sudo (opcional)
+
+sudo usermod -aG docker ${USER}
+
+su - ${USER}
+
+id -nG
+
+sudo usermod -aG docker username
+
+# 3 Utilizar docker
+
+docker
+docker -h
