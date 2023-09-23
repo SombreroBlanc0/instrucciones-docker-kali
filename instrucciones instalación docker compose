@@ -1,0 +1,15 @@
+# 1 Instalar docker compose en Kali (Linux)
+# Debes haber instalado docker anteriormente!!!!!
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+#Este comando descargará la versión 1.26.0 y guardará el archivo ejecutable en /usr/local/bin/docker-compose, que hará que este software esté globalmente accesible como docker-compose.
+
+sudo chmod +x /usr/local/bin/docker-compose
+#Establecer permisos para su ejecución
+
+docker-compose --version
+#Verificar versión instalada
+
+# Debería visualizarse por pantalla lo siguiente:
+# Output
+# docker-compose version 1.26.0, build 8a1c60f6
